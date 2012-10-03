@@ -238,8 +238,9 @@
 % define ISSN that will be inserted at the bottom right of the first page
 \newcommand\RR@issn{%
  \setbox0\hbox{\rotatebox{90}{\issn@font\color{white}
-    ISSN XXX-XXX-XXX
-    \qquad ISRN LIMOS/\RR@cond{RR}{RT}-{}-\RR@No-{}-FR+ENG}}
+%    ISSN XXX-XXX-XXX
+ %   \qquad ISRN LIMOS/\RR@cond{RR}{RT}-{}-\RR@No-{}-FR+ENG
+ }}
     \dimen0=272mm \advance\dimen0 by -\ht0
  \RR@atxy{190mm}{\dimen0}{\box0}}
  
@@ -285,8 +286,7 @@
   \RR@atxy{40mm}{240mm}{\hbox{\vbox{\parindent=0pt%
      \hsize=48mm \raggedright \hyphenpenalty 10000
      \color{blue}%
- {\rrno@font \RR@cond{RESEARCH}{TECHNICAL}\\[0mm]REPORT \\[4mm]
-      N\textdegree\ \RR@No}
+ {\rrno@font \RR@source}
       \theme@font \\[2mm]
       \RR@date\\[3mm] \RR@prjtype~\RR@projet}}}}
 \def\RR@fpmiddle{%
