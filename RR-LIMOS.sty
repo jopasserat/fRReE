@@ -95,6 +95,10 @@
 \authorhead{}
 
 % define commands to set compuslory elements such as: number, date, author
+\newcommand\RRsource[1]{\gdef\RR@source{#1}}
+\newcommand\RR@source{????}
+\newcommand\RRcopyright[1]{\gdef\RR@copyright{#1}}
+\newcommand\RR@copyright{????}
 \newcommand\RRNo[1]{\gdef\RR@No{#1}}
 \newcommand\RR@No{????}
 \newcommand\RR@month{\ifcase\the\month
@@ -325,15 +329,15 @@
    \ifRR@french
      Rapport \RR@cond{de recherche}{technique}
    \else
-     \RR@cond{Research}{Technical} Report
+     Originally published in:
    \fi
-   \space n\textdegree{} \RR@No  \rr@dash
+   %\space n\textdegree{} \RR@No  \rr@dash
    \ifRR@version
-        version \RR@version \rr@dash
+    %    version \RR@version \rr@dash
      \ifRR@french
         version initiale \RR@date\rr@dash version r\'evis\'ee \RR@dater
      \else
-        initial version \RR@date \rr@dash revised version \RR@dater
+        \RR@source \rr@dash \RR@copyright
      \fi
    \else
      \RR@date
