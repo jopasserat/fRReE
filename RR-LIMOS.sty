@@ -99,6 +99,10 @@
 \newcommand\RRenableFirstPage{\RR@firstpagetrue}
 \newcommand\RRsource[1]{\gdef\RR@source{#1}}
 \newcommand\RR@source{????}
+\newcommand\RRoriginalpages[1]{\gdef\RR@originalpages{#1}}
+\newcommand\RR@originalpages{????}
+\newcommand\RRadditionalinformation[1]{\gdef\RR@additionalinformation{#1}}
+\newcommand\RR@additionalinformation{????}
 \newcommand\RRcopyright[1]{\gdef\RR@copyright{#1}}
 \newcommand\RR@copyright{????}
 \newcommand\RRlogo[1]{\gdef\RR@logo{#1}}
@@ -349,7 +353,8 @@
    \else
      \RR@date
    \fi
-   \rr@dash \RR@nbpage\ pages\par
+   \rr@dash pp \RR@originalpages\\
+   \RR@additionalinformation
 \end{center}
 \RR@note
 \@thanks
@@ -363,7 +368,7 @@
 \newcommand\@makeRRorRT{%
   \RR@start\topmargin=18pt
   \thispagestyle{empty}\pagestyle{empty}
-  \ifRR@firstpage % TODO
+  \ifRR@firstpage 
      \RR@atxy{0cm}{10mm}{\includegraphics{rrpage1.pdf}}
      \RR@atxy{38mm}{35mm}{\includegraphics[width=50mm]{\RR@logo}}
      \RR@issn   \RR@fplow \RR@fpmiddle
