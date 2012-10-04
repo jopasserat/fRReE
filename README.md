@@ -10,7 +10,7 @@ This package contains:
 - the sources RR-LIMOS.ins et RR-LIMOS.dtx
 
 * Usage
-Use git clone to get the original repository, then rename squelette-limos.tex and modify it 
+Use git clone to get the original repository, then rename squelette-rr-limos and modify it 
 as desired to fit your article.
 
 Most variables are filled with ??? by default when no other value is set by user.
