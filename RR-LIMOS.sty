@@ -127,6 +127,7 @@
    use \string\RRauthor\string{Prenom1 Nom1 \string\and\space  Prenom2
     Nom2 \string\and \space...\string}}\@eha}
 \newcommand\RRtitle[1]{\gdef\RR@title{#1}}
+\newcommand\RR@title{}
 \newcommand\RRetitle[1]{\gdef\RR@etitle{#1}}
 \def\set@titlehead{%
   {\if@dc@french\global\RR@frenchtrue
@@ -140,8 +141,9 @@
    \ifx\@titlehead\tempa \ifRR@french \gdef\@titlehead{\RR@title} \else
      \gdef\@titlehead{\RR@etitle}\fi\fi}}
 \AtBeginDocument{\set@titlehead}
-\newcommand\RR@title{??\@latex@error{French title missing, use
-  \string\RRtitle.}\@eha}
+% disable requirement for French title
+%\newcommand\RR@title{??\@latex@error{French title missing, use
+%  \string\RRtitle.}\@eha}
 \newcommand\RR@etitle{??\@latex@error{English title missing, use
   \string\RRetitle.}\@eha}
 \newcommand\RRnote[1]{\begingroup
