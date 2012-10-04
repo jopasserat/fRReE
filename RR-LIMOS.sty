@@ -30,6 +30,7 @@
 
 % set default options and ask for required packages
 \newif\ifRR@french \RR@frenchfalse
+\newif\ifRR@firstpage \RR@firstpagefalse
 \newif\if@dc@french \@dc@frenchfalse
 \def\RR@badoption#1{\@latex@error
    {Option `#1' removed, see documentation}\@eha}
@@ -95,6 +96,7 @@
 \authorhead{}
 
 % define commands to set compuslory elements such as: number, date, author
+\newcommand\RRenableFirstPage{\RR@firstpagetrue}
 \newcommand\RRsource[1]{\gdef\RR@source{#1}}
 \newcommand\RR@source{????}
 \newcommand\RRcopyright[1]{\gdef\RR@copyright{#1}}
@@ -361,11 +363,13 @@
 \newcommand\@makeRRorRT{%
   \RR@start\topmargin=18pt
   \thispagestyle{empty}\pagestyle{empty}
-  \RR@atxy{0cm}{10mm}{\includegraphics{rrpage1.pdf}}
-  \RR@atxy{38mm}{35mm}{\includegraphics[width=50mm]{\RR@logo}}
-  \RR@issn   \RR@fplow \RR@fpmiddle
-  \null\vfill  \c@page\z@ \newpage
-  \null\vfill  \c@page\z@ \newpage
+  \ifRR@firstpage % TODO
+     \RR@atxy{0cm}{10mm}{\includegraphics{rrpage1.pdf}}
+     \RR@atxy{38mm}{35mm}{\includegraphics[width=50mm]{\RR@logo}}
+     \RR@issn   \RR@fplow \RR@fpmiddle
+     \null\vfill  \c@page\z@ \newpage
+     \null\vfill  \c@page\z@ \newpage
+  \fi   
   %\RR@sp \vfil  \newpage
   \RR@sp \vfil 
    {\ifRR@french \english\fi
