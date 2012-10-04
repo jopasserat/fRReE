@@ -1,3 +1,5 @@
+Copyright, jH@CKtheRipper, 2012
+
 
 This package contains:
 - the LaTeX style package RR-LIMOS.sty to design
@@ -7,6 +9,9 @@ This package contains:
 - a sample of document using the package squelette-rr-limos.tex
 - the sources RR-LIMOS.ins et RR-LIMOS.dtx
 
+* Usage
+Use git clone to get the original repository, then rename squelette-limos.tex and modify it 
+as desired to fit your article.
 
-Jonathan Passerat-Palmbach
+Most variables are filled with ??? by default when no other value is set by user.
 
