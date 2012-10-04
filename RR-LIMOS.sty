@@ -99,6 +99,8 @@
 \newcommand\RR@source{????}
 \newcommand\RRcopyright[1]{\gdef\RR@copyright{#1}}
 \newcommand\RR@copyright{????}
+\newcommand\RRlogo[1]{\gdef\RR@logo{#1}}
+\newcommand\RR@logo{logos/gingy.png}
 \newcommand\RRNo[1]{\gdef\RR@No{#1}}
 \newcommand\RR@No{????}
 \newcommand\RR@month{\ifcase\the\month
@@ -212,7 +214,7 @@
 % define layout of the second page
 \newcommand\rr@frame{%
  \RR@atxy{0mm}{10mm}{\includegraphics{pagei}}
- \RR@atxy{38mm}{35mm}{\includegraphics[width=50mm]{logos/limos.png}}
+ \RR@atxy{38mm}{35mm}{\includegraphics[width=50mm]{\RR@logo}}
  \RR@atxy{40mm}{256mm}{\hbox{\cr@font\color{blue}RESEARCH CENTRE}}
  \RR@atxy{40mm}{259mm}{\hbox{\cr@font\color{blue}\RR@rc}}
  \RR@atxy{40mm}{263mm}{\vbox{\hsize=18cm{\noindent\issn@font\RR@adr}}}}
@@ -358,7 +360,7 @@
   \RR@start\topmargin=18pt
   \thispagestyle{empty}\pagestyle{empty}
   \RR@atxy{0cm}{10mm}{\includegraphics{rrpage1.pdf}}
-  \RR@atxy{38mm}{35mm}{\includegraphics[width=50mm]{logos/limos.png}}
+  \RR@atxy{38mm}{35mm}{\includegraphics[width=50mm]{\RR@logo}}
   \RR@issn   \RR@fplow \RR@fpmiddle
   \null\vfill  \c@page\z@ \newpage
   \null\vfill  \c@page\z@ \newpage
