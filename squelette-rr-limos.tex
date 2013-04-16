@@ -1,83 +1,64 @@
-%%
-%% This is file `squelette-rr.tex',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% RR.dtx  (with options: `sample')
-%% ********************************************************************
-%% Copyright (C) 1997-1999 2004 2006-2011 INRIA/APICS/MARELLE by Jose' Grimm
-%% This file may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.3
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%    http://www.latex-project.org/lppl.txt
-%% and version 1.3 or later is part of all distributions of LaTeX
-%% version 2003/12/01 or later.
-%% An archive of the software can be found at
-%%    ftp://ftp-sop.inria.fr/marelle/RR-INRIA
-
 \documentclass[twoside]{article}
 \usepackage[a4paper]{geometry}
 \usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc} % or \usepackage[OT1]{fontenc}
+\usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{RR-LIMOS}
+\usepackage{url}
 \usepackage{hyperref}
+\usepackage{natbib} % to remove references numbers
+\usepackage{graphicx}
+\usepackage{float} % handle accuratley figures
 
-% comment out to disable pretty first page
-%\RRenableFirstPage
-
-%% RR number
-\RRNo{00042}
-%% date de publication du rapport
-\RRdate{September 2012}
-%% Cas d'une version deux
-\RRversion{2}
-%% date de publication de la version 2
-\RRdater{October 2013}
+%% date de publication de la version
+\RRdate{October 2010}
 
 %% les auteurs
 \RRauthor{
  % Premier auteur, avec une note
-Jonathan Passerat-Palmbach\thanks{This author's PhD is partially funded by the Auvergne Regional Council and the FEDER}%
-  % note partag\'ee (optionnelle)
-  \thanks[sfn]{Shared foot note}%
- % \and entre chaque auteur s'il y en a plusieurs
-  \and
-Toto\thanks{Thanks second author}%
- % r\'ef\'erence \`a la note partag\'ee
-\thanksref{sfn}
+Jonathan \textsc{Passerat-Palmbach}\thanks{This author's PhD is partially funded by the Auvergne Regional Council and the FEDER}%
+\thanks[sfn0]{ISIMA, Institut Sup\'erieur d'Informatique, de Mod\'elisation et de ses Appplications, BP 10125, F-63173 AUBIERE}
+\thanks[sfn1]{Clermont Universit\'e, Universit\'e Blaise Pascal, LIMOS, BP 10448, F-63000 CLERMONT-FERRAND}
+\thanks[sfn2]{Clermont Universit\'e, Universit\'e Blaise Pascal, BP 10448, F-63000 CLERMONT-FERRAND}
+\thanks[sfn3]{CNRS, UMR 6158, LIMOS, F-63173 AUBIERE}
+   \and
+\\Claude \textsc{Mazel}
+\thanksref{sfn0}
+\thanksref{sfn1}
+\thanksref{sfn2}
+\thanksref{sfn3}
+   \and
+\\Antoine \textsc{Mahul} 
+\thanksref{sfn0}
+\thanksref{sfn1}
+\thanksref{sfn2}
+\thanksref{sfn3}
+   \and
+\\David R.C. \textsc{Hill}
+\thanksref{sfn0}
+\thanksref{sfn1}
+\thanksref{sfn2}
+\thanksref{sfn3}
 }
 
 %% Ceci apparait sur chaque page paire.
-\authorhead{Passerat-Palmbach \& Toto}
-%% titre francais long
-\RRtitle{Exemple de document\\
- utilisant le style\\rapport de recherche\\LIMOS}
+\authorhead{Passerat-Palmbach et. al}
 %% English title
-\RRetitle{Very Long Title for Checking Whether it Fits on the Cover
-  Page of LIMOS' Research Report Document Type (Extended Version)}
+\RRetitle{Reliable Initialization of GPU-enabled Parallel Stochastic Simulations Using Mersenne Twister for Graphics Processors}
+\RRsource{European Simulation and Modeling Conference 2010}
 %%
-\titlehead{Example of RR.sty}
+\titlehead{ESM 2010}
 %%
-\RRnote{This is a note}
-\RRnote{This is a second note}
 
+\RRcopyright{\textcopyright 2010 Eurosis}
 \RRoriginalpages{187-195}
-\RRadditionalinformation{doi:/foo.x}
+\RRadditionalinformation{ISBN: 978-90-77381-57-1}
 
-\RRresume{
-R\'esum\'e fran\c{c}ais
-}
 \RRabstract{
-English abstract
+\input{body/abstract.tex}
 }
 %%
-\RRmotcle{programmation orient\'ee objet, calcul haute performances,  %mots-cl\'es sans rapport
-simulation,  mod\'elisation, pseudo-al\'eatoire}
-\RRkeyword{object oriented programming, high performance computing, 
-simulation,  modelisation, pseudo-random}
+\RRkeyword{Parallel Stochastic Simulation, Random Numbers Generation, GP-GPU, CUDA, MTGP, TestU01} 
 
 
 \RRprojecttype{}
@@ -88,15 +69,48 @@ simulation,  modelisation, pseudo-random}
 \begin{document}
 %%
 \makeRR   % cas d'un rapport de recherche
-%% \makeRT % cas d'un rapport technique.
-%% a partir d'ici, chacun fait comme il le souhaite
-\section{First section}
-Here is some text for the first section, and a label\label{sec1}.
-Uses version \RRfileversion\ of the package.\newpage
-\section{Second section}
-Text for the second section. This is closely related to the text in
-section \ref{sec1} on page \pageref{sec1}. \newpage
-\tableofcontents
+
+\section{INTRODUCTION}
+\input{body/introduction.tex}
+
+\section{PSEUDO RANDOM NUMBERS FOR GP-GPUs}
+\input{body/prng_gpus.tex}
+
+\section{DESCRIPTION OF MTGP}
+	\subsection{Data Structure}
+	\input{body/mtgp_data_structure.tex}
+	
+	\subsection{Architecture Independence}
+	\input{body/mtgp_architecture_independence.tex}
+
+\section{MTGP BENCHMARK}
+	\subsection{Empiric Test of 10000 Statuses}
+	\input{body/statuses_benchmark.tex}
+	
+	\subsection{Statistics-Based Analysis}
+	\input{body/statistics_analysis.tex}
+
+\section{PARAMETERIZED STATUS INFLUENCE}
+	\subsection{Seed Status Variation}
+	\input{body/seed_status_variation.tex}
+
+	\subsection{Period Variation}
+	\input{body/period_variation.tex}
+
+	\subsection{Algorithm Variation}
+	\input{body/algorithm_variation.tex}
+
+\section{CONCLUSION}
+\input{body/conclusion.tex}
+
+\bibliographystyle{apa}
+%\nocite{*} 
+\bibliography{esm2010}
+
+\section{BIOGRAPHY}
+\input{body/biography.tex}
+
+
 
 \end{document}
 \endinput
