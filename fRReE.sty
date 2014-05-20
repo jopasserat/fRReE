@@ -1,13 +1,10 @@
 %%
-%% This is file `RR.sty',
-%% generated with the docstrip utility.
+%% This is file `fRReE.sty' (free Research Reports Enlightment),
+%% derived from the INRIA RR.sty class.
 %%
-%% The original source files were:
-%%
-%% RR.dtx  (with options: `RR')
 %% ********************************************************************
 %% Copyright (C) 2012-2014 Jonathan Passerat-Palmbach
-%% forked from RR.sty by
+%% forked from RR.sty
 %% Copyright (C) 1997-1999 2004 2006-2011 INRIA/APICS/MARELLE by Jose' Grimm
 %%
 %% This file may be distributed and/or modified under the
@@ -25,7 +22,7 @@
 \ProvidesPackage{fRReE}
        [\RRfiledate\space v\RRfileversion\space
          Copyright Jonathan Passerat-Palmbach]
-\typeout{Research Report template version 
+\typeout{fRReE - Research Report template version 
 \RRfileversion\space of \RRfiledate}
 
 % set default options and ask for required packages
@@ -92,11 +89,13 @@
 
 % title and author information to appear in headers
 % these are automaticaly set by the parameter of RR* commands 
+% but can also be overriden
 \let\titlehead=\undefined
-\newcommand\titlehead[1]{\gdef\@titlehead{#1}}
-\newcommand\authorhead[1]{\gdef\@authorhead{#1}}
-\titlehead{}
-\authorhead{}
+\let\RRauthorhead=\undefined
+\newcommand\RRtitlehead[1]{\gdef\RR@titlehead{#1}}
+\newcommand\RRauthorhead[1]{\gdef\RR@authorhead{#1}}
+\RRtitlehead{}
+\RRauthorhead{}
 
 % define commands to set compuslory elements such as: number, date, author
 \newcommand\RRenableFirstPage{\RR@firstpagetrue}
@@ -134,7 +133,7 @@
 \newcommand\RRversion[1]{\gdef\RR@version{#1}\global\RR@versiontrue}
 \newcommand\RR@version{Initial version}%
 \newif\ifRR@version\RR@versionfalse
-\newcommand\RRauthor[1]{\gdef\RR@author{#1}\gdef\@authorhead{#1}}
+\newcommand\RRauthor[1]{\gdef\RR@author{#1}\gdef\RR@authorhead{#1}}
 \newcommand\RR@author{??\gdef\RR@author{??}%
 \@latex@error{No author given,^^J
    use \string\RRauthor\string{Prenom1 Nom1 \string\and\space  Prenom2
@@ -150,7 +149,7 @@
      \@ifundefined{ifFrench}{}{\global\RR@frenchtrue}%
    \fi
    \def\tempa{}%
-   \ifx\@titlehead\tempa \gdef\@titlehead{\RR@title}\fi}}
+   \ifx\RR@titlehead\tempa \gdef\RR@titlehead{\RR@title}\fi}}
 \AtBeginDocument{\set@titlehead}
 \newcommand\RRnote[1]{\begingroup
   \let\protect\@unexpandable@protect
@@ -369,17 +368,18 @@
       \def\footnotemark[##1]{\relax}}
 \newcommand\ps@pi{\let\@mkboth\@gobbletwo%
   \def\@oddhead{\vbox{\hbox to \textwidth{%
-    \normalsize\normalfont{\itshape \@inibe\@titlehead}\hfil\thepage}%
+    \normalsize\normalfont{\itshape \@inibe\RR@titlehead}\hfil\thepage}%
     \hbox{\rule[-1ex]{\textwidth}{.03cm}}}}
   %\def\@oddfoot{{\normalfont\footnotesize \RR@cond{RR}{RT}%
    % \space n\textdegree{} \RR@No{}}\hfill}
   \def\@evenhead{\vbox{\hbox to \textwidth{%
-    \normalsize\normalfont\thepage\hfil{\itshape \@inibe\@authorhead}}
+    \normalsize\normalfont\thepage\hfil{\itshape \@inibe\RR@authorhead}}
     \hbox{\rule[-1ex]{\textwidth}{.03cm}}}}%
   \def\@evenfoot{\hfill{\footnotesize\normalfont }}}
 \let\ps@plain\ps@pi
 \headheight1cm
 \headsep1cm
+\pagestyle{empty} % remove page number since it appears in header
 \pagestyle{pi}
 \@ifundefined{chapter}{\relax}
    {\def\chapter{\cleardoublepage \thispagestyle{pi}
