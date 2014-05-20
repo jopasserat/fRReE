@@ -158,23 +158,6 @@
 \def\RRobsolete#1{%
 \@latex@error{Obsolete command `\@backslashchar#1' ignored}\@eha}
 
-%% set projets variables to empty values
-\newcommand\RR@prjtype{Project-Team}
-\newcommand\RR@fprjtype{\'Equipe-Projet}
-\newcommand\RRprojet[1]{\gdef\RR@projet{#1}}
-\newcommand\RRprojets[1]{\gdef\RR@fprjtype{\'Equipes-Projets}
-  \gdef\RR@prjtype{Project-Teams}\gdef\RR@projet{#1}}
-\newcommand\RRprojecttype[1]{\gdef\RR@prjtype{#1}}
-\newcommand\RRfrprojecttype[1]{\gdef\RR@fprjtype{#1}}
-\newcommand\RRprojectinfo[1]{\gdef\RR@prjtype{#1}}
-\let\RRequipe\RRprojet
-\let\RRequipes\RRprojets
-\newcommand\RR@projet{??\latex@error{Team missing, use
- \string\RRprojet}\@eha}
-\RRprojecttype{}
-\RRfrprojecttype{}
-\RRprojet{}
-\RRprojets{}
 
  
 % define number of last page
@@ -288,7 +271,7 @@
 { \theme@font \textit{From:}\\[3mm]
  \rrno@font \RR@source}
       \theme@font\\[2mm]
-      \RR@date\\[3mm] \RR@prjtype~\RR@projet}}}}
+      \RR@date\\[3mm]}}}}
 \def\RR@fpmiddle{%
  \RR@atxy{38mm}{113mm}{\hbox{\vbox to 10cm{\hsize=14cm
    \begin{raggedright}
@@ -323,8 +306,6 @@
    {\large \lineskip .75em \RR@author \par}
    \vskip 1em
    \normalsize
-   \ifRR@french \RR@fprjtype\else\RR@prjtype\fi
-    ~\RR@projet \par
    \vskip 1em
    \ifRR@french
      Rapport \RR@cond{de recherche}{technique}
@@ -366,7 +347,7 @@
   \RR@sp \vfil 
    {\ifRR@french \english\fi
      {\Large\bf  \begin{center}
-       \RR@title
+%       \RR@title
         \end{center}}
     % \pagebreak[0]
     % \ifRR@french \RR@abstract\par\vskip2mm \RR@keyword \french\else
