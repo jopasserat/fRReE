@@ -6,7 +6,7 @@
 %%
 %% RR.dtx  (with options: `RR')
 %% ********************************************************************
-%% Copyright (C) 2012 CNRS/LIMOS/ISIMA by Jonathan Passerat-Palmbach
+%% Copyright (C) 2012-2014 Jonathan Passerat-Palmbach
 %% forked from RR.sty by
 %% Copyright (C) 1997-1999 2004 2006-2011 INRIA/APICS/MARELLE by Jose' Grimm
 %%
@@ -111,8 +111,10 @@
 \newcommand\RRlogo[1]{\gdef\RR@logo{#1}}
 \newcommand\RR@logo{logos/gingy.eps}
 \newcommand\RRfooterLastPage[1]{\gdef\RR@footerLastPage{#1}}
-\newcommand\RR@footerLastPage{Publisher\\ LIMOS - UMR CNRS 6158 \\ Campus des C\'ezeaux \\ B\^atiment ISIMA\\
-      BP 10125 - 63173 Aubi\`ere Cedex\\\url{http://limos.isima.fr}\\\url{http://www.isima.fr}}
+\newcommand\RR@footerLastPage{Publisher\\
+  \RR@rc@name \\
+  \RR@rc@addr\\
+  \RR@rc@website}
       
 \newcommand\RR@month{\ifcase\the\month
  \or Janvier\or F\'evrier\or Mars\or Avril\or Mai\or Juin \or Juillet%
@@ -178,20 +180,23 @@
 \RRkeyword{No keywords}
 \let\abstract=\RRabstract
 \let\keyword=\RRkeyword
-\let\RR@rc@name\relax \let\RR@rc\empty
+\let\RR@rc\relax \let\RR@rc@name\empty
 
 % define lab address
-\newcommand\RCLimos{\gdef\RR@rc@name{limos}
-  \def\RR@rc{LIMOS - UMR CNRS 6158}
-  \def\RR@adr{Campus des C\'ezeaux\\
-	      B\^atiment ISIMA\\
-	      BP 10125\\
-	      63173 Aubi\`ere Cedex}}
-\let\URLimos\RCLimos\RCLimos
+\newcommand\RROrigin{
+  \gdef\RR@rc{icl}
+  \def\RR@rc@name{Imperial College London}
+  \def\RR@rc@addr{Department of Computing\\
+	      Huxley Building\\
+	      London SW7 2AZ\\
+	      United Kingdom}
+  \def\RR@rc@website{\url{http://www3.imperial.ac.uk/}}}
+
 % and allow users to redefine it
-\newcommand\RRrcname[1]{\gdef\RR@rc@name{#1}}
 \newcommand\RRrc[1]{\gdef\RR@rc{#1}}
-\newcommand\RRadr[1]{\gdef\RR@adr{#1}}
+\newcommand\RRrcname[1]{\gdef\RR@rc@name{#1}}
+\newcommand\RRaddr[1]{\gdef\RR@rc@addr{#1}}
+\newcommand\RRwebiste[1]{\gdef\RR@rc@website{#1}}
 
 
 % define layout of the second page
@@ -199,8 +204,8 @@
  \RR@atxy{0mm}{10mm}{\includegraphics{pagei}}
  \RR@atxy{48mm}{28mm}{\includegraphics[keepaspectratio]{\RR@logo}}
  \RR@atxy{40mm}{256mm}{\hbox{\cr@font\color{blue}RESEARCH CENTRE}}
- \RR@atxy{40mm}{259mm}{\hbox{\cr@font\color{blue}\RR@rc}}
- \RR@atxy{40mm}{263mm}{\vbox{\hsize=18cm{\noindent\issn@font\RR@adr}}}}
+ \RR@atxy{40mm}{259mm}{\hbox{\cr@font\color{blue}\RR@rc@name}}
+ \RR@atxy{40mm}{263mm}{\vbox{\hsize=18cm{\noindent\issn@font\RR@rc@addr}}}}
  
 % define layout of the last page
 % also a nice way to insert a label in the last page, so that
