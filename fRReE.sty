@@ -110,8 +110,6 @@
 \newcommand\RR@copyright{????}
 \newcommand\RRlogo[1]{\gdef\RR@logo{#1}}
 \newcommand\RR@logo{logos/gingy.eps}
-\newcommand\RRNo[1]{\gdef\RR@No{#1}}
-\newcommand\RR@No{????}
 \newcommand\RRfooterLastPage[1]{\gdef\RR@footerLastPage{#1}}
 \newcommand\RR@footerLastPage{Publisher\\ LIMOS - UMR CNRS 6158 \\ Campus des C\'ezeaux \\ B\^atiment ISIMA\\
       BP 10125 - 63173 Aubi\`ere Cedex\\\url{http://limos.isima.fr}\\\url{http://www.isima.fr}}
@@ -141,7 +139,6 @@
     Nom2 \string\and \space...\string}}\@eha}
 \newcommand\RRtitle[1]{\gdef\RR@title{#1}}
 \newcommand\RR@title{}
-\newcommand\RRetitle[1]{\gdef\RR@etitle{#1}}
 \def\set@titlehead{%
   {\if@dc@french\global\RR@frenchtrue
    \else
@@ -151,14 +148,8 @@
      \@ifundefined{ifFrench}{}{\global\RR@frenchtrue}%
    \fi
    \def\tempa{}%
-   \ifx\@titlehead\tempa \ifRR@french \gdef\@titlehead{\RR@title} \else
-     \gdef\@titlehead{\RR@etitle}\fi\fi}}
+   \ifx\@titlehead\tempa \gdef\@titlehead{\RR@title}\fi}}
 \AtBeginDocument{\set@titlehead}
-% disable requirement for French title
-%\newcommand\RR@title{??\@latex@error{French title missing, use
-%  \string\RRtitle.}\@eha}
-\newcommand\RR@etitle{??\@latex@error{English title missing, use
-  \string\RRetitle.}\@eha}
 \newcommand\RRnote[1]{\begingroup
   \let\protect\@unexpandable@protect
   \protected@xdef\RR@note{\RR@note \protect\footnotetext[0]{#1\par}}%
@@ -290,9 +281,7 @@
    \def\thanks{\@ifnextchar[ {\@xthanks}{\orig@thanks}}% ]
    \@ifundefined{english}{\def\english{}}{}
    \@ifundefined{french}{\def\french{}}{}
-   \ifx\RR@rc@name\relax \@latex@error{Missing \string\URLorraine,
-      \string\URRennes, \string \URRhoneAlpes, \string \URRocq, ^^J
-      \string \URFuturs, or \string\URSophia}
+   \ifx\RR@rc@name\relax \@latex@error{Missing research group/affiliation}
       \@eha {\gdef\RR@rc@name{bordeaux}}%
    \fi
    \gdef\and{\unskip, }
@@ -316,7 +305,7 @@
      \def\my@xfootnotemark[##1]{\relax}%
      \color{white}
      {\title@font  \baselineskip43pt
-        \ifRR@french {\RR@title}\else {\RR@etitle}\fi
+       {\RR@title}
        \\[1cm]}
      \baselineskip16pt
      {\author@font\RR@author}%
@@ -335,7 +324,7 @@
 \dimen0=\@themargin\advance \dimen0 by -26mm
 \advance \rightskip by \dimen0
 \advance \leftskip by -\dimen0\hsize 115mm
-   {\Large\bf \ifRR@french \RR@title\else\RR@etitle\fi \par}
+   {\Large\bf \RR@title \par}
    \vskip 2em
    {\large \lineskip .75em \RR@author \par}
    \vskip 1em
@@ -350,7 +339,6 @@
    \fi
    %\space n\textdegree{} \RR@No  \rr@dash
    \ifRR@version
-    %    version \RR@version \rr@dash
      \ifRR@french
         version initiale \RR@date\rr@dash version r\'evis\'ee \RR@dater
      \else
@@ -386,7 +374,7 @@
   \RR@sp \vfil 
    {\ifRR@french \english\fi
      {\Large\bf  \begin{center}
-       \ifRR@french \RR@etitle\else \RR@title \fi
+       \RR@title
         \end{center}}
     % \pagebreak[0]
     % \ifRR@french \RR@abstract\par\vskip2mm \RR@keyword \french\else
@@ -423,24 +411,7 @@
 %%\evensidemargin0.96cm
 %%\oddsidemargin0.96cm
 %%\footskip2cm
-%% Param\`etres de taille en mode RRA4.
-%%\textwidth17cm
-%%\textheight24cm
-%%\evensidemargin-0.46cm
-%%\oddsidemargin-0.46cm
-%%\topmargin-1.46cm
-%%\footskip1cm
-%%\setcounter{topnumber}{5}
-%%\def\topfraction{1}
-%%\setcounter{bottomnumber}{4}
-%%\def\bottomfraction{1}
-%%\setcounter{totalnumber}{10}
-%%\def\textfraction{0}
-%%\def\floatpagefraction{.5}
-%%\clubpenalty=10000
-%%\widowpenalty=10000
-%%\hfuzz=1pt
-%%\vfuzz=5pt
+
 \endinput
 %%
 %% End of file `fRRee.sty'.
