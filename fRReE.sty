@@ -182,25 +182,19 @@
 \newcommand\RR@nbpage{\@ifundefined{r@RRlastpageofreport}{??}
   {\pageref{RRlastpageofreport}}}
 
-% provide a way to insert an abstract in both French and English
+% provide a way to insert an abstract
 % default value is no abstract
-\newcommand\RRresume[1]{%
-    \long\def\RR@resume{\noindent{\bf R\'esum\'e : } #1\par}}
 \newcommand\RRabstract[1]{%
     \long\def\RR@abstract{\noindent{\bf Abstract: } #1\par}}
-\RRresume{Pas de r\'esum\'e}
 \RRabstract{No abstract}
 
-% provide a way to define keywords in both French and English
-% default value is no keywords
-\newcommand\RRmotcle[1]{%
-   \def\RR@motcle{\noindent{\bf Mots-cl\'es : } #1\par}}
+% provide a way to define keywords
+% default value is "No keywords"
 \newcommand\RRkeyword[1]{%
    \def\RR@keyword{\noindent{\bf Keywords: } #1\par}}
-\RRmotcle{Pas de motclef}
 \RRkeyword{No keywords}
-\let\resume=\RRresume \let\abstract=\RRabstract
-\let\motcle=\RRmotcle \let\keyword=\RRkeyword
+\let\abstract=\RRabstract
+\let\keyword=\RRkeyword
 \let\RR@rc@name\relax \let\RR@rc\empty
 
 % define lab address
@@ -357,9 +351,7 @@
 \dimen0=\@themargin
 \advance \dimen0 by -11mm
 \noindent\kern-\dimen0\parbox{150mm}{%
-   \ifRR@french
-      \RR@resume \par\vskip2mm \RR@motcle \else
-      \RR@abstract\par\vskip2mm \RR@keyword\fi}}}
+      \RR@abstract\par\vskip2mm \RR@keyword}}}
 \newcommand\@makeRRorRT{%
   \RR@start\topmargin=18pt
   \thispagestyle{empty}\pagestyle{empty}
