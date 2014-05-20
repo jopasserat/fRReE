@@ -8,14 +8,33 @@
 \usepackage{hyperref}
 \usepackage{natbib} % to remove references numbers
 \usepackage{graphicx}
-\usepackage{float} % handle accuratley figures
 
-%% date de publication de la version
+
+%%%%%%%%%%%%%%%%%% begin package common defintions %%%%%%%%%%%%%%%%%%
+
+%% location of research centre (default is Department of Computing of Imperial College London)
+%% can be overriden using the following commands
+%%  \RRrc{icl}
+%%  \RRrcname{Imperial College London}
+%%  \RRrcaddr{Department of Computing\\
+%%	      Huxley Building\\
+%%	      London SW7 2AZ\\
+%%	      United Kingdom}
+%% \RRrc@website{\url{http://www3.imperial.ac.uk/}}
+
+%% THIS CALL IS NECESSARY
+\RROrigin  
+
+%%%%%%%%%%%%%%%%%% end package common defintions %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% begin publication related defintions %%%%%%%%%%%%%%%%
+
+%% publication date
 \RRdate{October 2010}
 
-%% les auteurs
+%% authors
 \RRauthor{
- % Premier auteur, avec une note
+ % first author and his affiliations 
 Jonathan \textsc{Passerat-Palmbach}\thanks{This author's PhD is partially funded by the Auvergne Regional Council and the FEDER}%
 \thanks[sfn0]{ISIMA, Institut Sup\'erieur d'Informatique, de Mod\'elisation et de ses Appplications, BP 10125, F-63173 AUBIERE}
 \thanks[sfn1]{Clermont Universit\'e, Universit\'e Blaise Pascal, LIMOS, BP 10448, F-63000 CLERMONT-FERRAND}
@@ -41,37 +60,48 @@ Jonathan \textsc{Passerat-Palmbach}\thanks{This author's PhD is partially funded
 \thanksref{sfn3}
 }
 
-%% Ceci apparait sur chaque page paire.
-\authorhead{Passerat-Palmbach et. al}
-%% English title
-\RRtitle{Reliable Initialization of GPU-enabled Parallel Stochastic Simulations Using Mersenne Twister for Graphics Processors}
-\RRsource{European Simulation and Modeling Conference 2010}
-%%
-\titlehead{ESM 2010}
-%%
+%% Override short author (even pages) and short title (odd pages) in headers
+\RRauthorhead{Passerat-Palmbach et. al}
+\RRtitlehead{ESM 2010}
 
+%% publication source (conference name, journal title, ...)
+\RRsource{European Simulation and Modeling Conference 2010}
 \RRcopyright{\textcopyright 2010 Eurosis}
+% pages in publisher's proceedings, journal
 \RRoriginalpages{187-195}
 \RRadditionalinformation{ISBN: 978-90-77381-57-1}
 
+
+%% title
+\RRtitle{Reliable Initialization of GPU-enabled Parallel Stochastic Simulations Using Mersenne Twister for Graphics Processors}
+
+%% abstract and keywords
 \RRabstract{
-%\input{body/abstract.tex}
+	%\input{body/abstract.tex}
 }
-%%
+
 \RRkeyword{Parallel Stochastic Simulation, Random Numbers Generation, GP-GPU, CUDA, MTGP, TestU01} 
 
-\RROrigin  % research centre location
+%%%%%%%%%%%%%%% end publication related defintions %%%%%%%%%%%%%%%%%%
 
-%%
+
 \begin{document}
-%%
-\makeRR   % cas d'un rapport de recherche
+%% FIRST CALL AFTER \befin{document}
+\makeRR
 
 %\section{INTRODUCTION}
 %\input{body/introduction.tex}
 %
 %\section{PSEUDO RANDOM NUMBERS FOR GP-GPUs}
 %\input{body/prng_gpus.tex}
+
+\newpage
+\section{Pouet}
+Coucou
+
+\newpage
+\section{Pouet2}
+Coucou2
 %
 %\section{DESCRIPTION OF MTGP}
 %	\subsection{Data Structure}
@@ -112,4 +142,4 @@ Jonathan \textsc{Passerat-Palmbach}\thanks{This author's PhD is partially funded
 \end{document}
 \endinput
 %%
-%% End of file `squelette-rr.tex'.
+%% End of file `template-fRReE.tex'
