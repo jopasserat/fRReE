@@ -1,16 +1,18 @@
-# Description #
+# fRReE - free Researh Report Enlighter #
+
+## Description ##
 
 This package contains:
  - the LaTeX style package fRReE.sty to design and make available publications
  - some logos in png and eps, plus the related gimp project (xcf) of various institutions
  - a sample document using the package template-fRReE.tex
 
-# Usage #
+## Usage ##
 Use git clone to get the original repository, then rename template-fRReE.tex and modify it to fit your publication.
 
 Most variables are filled with ??? by default when no other value is explicitely set.
 
-# Documentation #
+## Documentation ##
 
  - **\RRdate { date }**
 
