@@ -223,15 +223,6 @@
   \clearpage}
 \AtEndDocument{\lastRRpage}
 
-% define ISSN that will be inserted at the bottom right of the first page
-\newcommand\RR@issn{%
- \setbox0\hbox{\rotatebox{90}{\issn@font\color{white}
-%    ISSN XXX-XXX-XXX
- %   \qquad ISRN LIMOS/\RR@cond{RR}{RT}-{}-\RR@No-{}-FR+ENG
- }}
-    \dimen0=272mm \advance\dimen0 by -\ht0
- \RR@atxy{190mm}{\dimen0}{\box0}}
- 
 
 \def\@nothanks{\@ifnextchar[{\@xnothanks}{\@gobble}}
 \def\@xnothanks[#1]#2{\relax}
@@ -253,18 +244,14 @@
      \advance\dimen1 -\dimen0 \enlargethispage{-\dimen1}\fi}
 \newif\ifRR@RT
 \newcommand\makeRR{\RR@RTtrue{\@makeRRorRT}}
-\newcommand\makeRT{\RR@RTfalse{\@makeRRorRT}}
 \newcommand\rr@dash{ --- }
 \newcommand\RR@cond[2]{\ifRR@RT#1\else#2\fi}
 \def\RR@start{
-   \global\let\makeRR\relax\global\let\makeRT\relax
+   \global\let\makeRR\relax
    \let\orig@thanks\thanks
    \def\RRaffiliation{\@ifnextchar[ {\@xthanks}{\orig@thanks}}% ]
    \@ifundefined{english}{\def\english{}}{}
    \@ifundefined{french}{\def\french{}}{}
-   \ifx\RR@rc@name\relax \@latex@error{Missing research group/affiliation}
-      \@eha {\gdef\RR@rc@name{bordeaux}}%
-   \fi
    \gdef\and{\unskip, }
    \@restonecolfalse
    \if@twocolumn\@restonecoltrue\onecolumn\fi}
@@ -340,13 +327,6 @@
 \newcommand\@makeRRorRT{%
   \RR@start\topmargin=18pt
   \thispagestyle{empty}\pagestyle{empty}
-  \ifRR@firstpage 
-     \RR@atxy{0cm}{10mm}{\includegraphics{rrpage1.eps}}
-     \RR@atxy{38mm}{35mm}{\includegraphics[width=50mm]{\RR@logo}}
-     \RR@issn   \RR@fplow \RR@fpmiddle
-     \null\vfill  \c@page\z@ \newpage
-     \null\vfill  \c@page\z@ \newpage
-  \fi   
   %\RR@sp \vfil  \newpage
   \RR@sp \vfil 
    {\ifRR@french \english\fi
