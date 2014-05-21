@@ -111,7 +111,7 @@
 \newcommand\RR@logo{logos/gingy.eps}
 \newcommand\RRfooterLastPage[1]{\gdef\RR@footerLastPage{#1}}
 \newcommand\RR@footerLastPage{Publisher\\
-  \RR@rc@name \\
+  \RR@rc@name\\
   \RR@rc@addr\\
   \RR@rc@website}
       
@@ -237,7 +237,7 @@
 \def\@xnothanks[#1]#2{\relax}
 \def\@xthanks[#1]#2{\orig@thanks{#2}
   \expandafter\edef\csname @footnote@#1\endcsname{\the\c@footnote}}
-\def\thanksref#1{\footnotemark[\csname @footnote@#1\endcsname]}
+\def\RRaffiliationref#1{\footnotemark[\csname @footnote@#1\endcsname]}
 
 
 \newcommand\@out@CR{%
@@ -259,7 +259,7 @@
 \def\RR@start{
    \global\let\makeRR\relax\global\let\makeRT\relax
    \let\orig@thanks\thanks
-   \def\thanks{\@ifnextchar[ {\@xthanks}{\orig@thanks}}% ]
+   \def\RRaffiliation{\@ifnextchar[ {\@xthanks}{\orig@thanks}}% ]
    \@ifundefined{english}{\def\english{}}{}
    \@ifundefined{french}{\def\french{}}{}
    \ifx\RR@rc@name\relax \@latex@error{Missing research group/affiliation}
@@ -361,7 +361,7 @@
    \vfil \null \newpage
    \if@restonecol\twocolumn\fi
   \setcounter{footnote}{0}
-  \global\def\thanks##1{\relax}}
+  \global\def\RRaffiliation##1{\relax}}
 \newcommand\@inibe{%
       \let\\\space
       \let\thanks\@nothanks%
