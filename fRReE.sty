@@ -3041,7 +3041,7 @@ C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!
 \let\RR@rc\relax \let\RR@rc@name\empty
 
 % define lab address
-\newcommand\RROrigin{
+\newcommand\RRorigin{
   \gdef\RR@rc{icl}
   \def\RR@rc@name{Imperial College London}
   \def\RR@rc@addr{Department of Computing\\
@@ -3049,6 +3049,10 @@ C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!
 	      London SW7 2AZ\\
 	      United Kingdom}
   \def\RR@rc@website{\url{http://www3.imperial.ac.uk/}}}
+
+%% generates the output resulting from the Research centre details
+% strangely it does not need to be called again when a \RRrcXXX element is modified...
+\RRorigin
 
 % and allow users to redefine it
 \newcommand\RRrc[1]{\gdef\RR@rc{#1}}

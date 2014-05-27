@@ -14,7 +14,21 @@ Most variables are filled with ??? by default when no other value is explicitely
 
 ## Documentation ##
 
- - **\RRdate { date }**
+  - **Research Centre**
+
+    - *\RRrc { label }*
+    - *\RRrcname { Research Centre Name }*
+    - *\RRrcaddr { Address }*
+    - *\RRrcwebsite { \url{http://jopasser.at} }*
+
+This set of command overrides the default values for the Research Centre issuing the report.  
+The default values refer to Imperial College London's Department of Computing.
+
+    - *\RRlogo { img }*
+
+Set the Research Centre's logo to appear on the first and last page. A default logo is supplied, use it at your own risks...
+
+  - **\RRdate { date }**
 
 This command is optional, but if you do not use it, you will
 get a LaTeX warning. The date argument is normally formed of the
