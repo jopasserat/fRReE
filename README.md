@@ -1,4 +1,4 @@
-# fRReE - free Researh Report Enlighter #
+# fRReE - free Researh Report Enlightenment #
 
 ## Description ##
 
