@@ -1,5 +1,13 @@
 # fRReE - free Researh Report Enlightenment #
 
+**fRReE** *(free Research Report Enlightenment)* is a LaTeX class to quickly change the style of research papers written in LaTeX and make them available freely on the Internet.  
+
+Publishers' copyright are often unclear about the rights you keep on your articles. However, in most cases, you keep all your rights on your work and only the final version with the published layout belongs to the publishers.
+
+It means that althought you've signed this copyright transfer form, you can still distribute freely your work on the Internet by just changing the layout of your paper!
+
+This is exactly what fRReE enables you to do in the blink of an eye. Check on this search engine the policy of your journal/conference, to make sure the copyright transfer you signed allows you to distribute your paper: http://www.sherpa.ac.uk/romeo/index.php
+
 ## Description ##
 
 This package contains:
@@ -24,9 +32,11 @@ Most variables are filled with ??? by default when no other value is explicitely
 This set of command overrides the default values for the Research Centre issuing the report.  
 The default values refer to Imperial College London's Department of Computing.
 
-    - *\RRlogo { img }*
+
+  - **\RRlogo { img }**
 
 Set the Research Centre's logo to appear on the first and last page. A default logo is supplied, use it at your own risks...
+
 
   - **\RRdate { date }**
 
