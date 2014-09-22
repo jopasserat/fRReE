@@ -1,12 +1,20 @@
-# fRReE - free Researh Report Enlightenment #
+# fRReE - free Research Report Enlightenment #
 
-**fRReE** *(free Research Report Enlightenment)* is a LaTeX class to quickly change the style of research papers written in LaTeX and make them available freely on the Internet.  
+**fRReE** *(free Research Report Enlightenment)* is a LaTeX class to quickly change the style of research papers written in LaTeX in order to distribute them in Open Access Archives.  
 
 Publishers' copyright are often unclear about the rights you keep on your articles. However, in most cases, you keep all your rights on your work and only the final version with the published layout belongs to the publishers.
 
 It means that althought you've signed this copyright transfer form, you can still distribute freely your work on the Internet by just changing the layout of your paper!
 
-This is exactly what fRReE enables you to do in the blink of an eye. Check on this search engine the policy of your journal/conference, to make sure the copyright transfer you signed allows you to distribute your paper: http://www.sherpa.ac.uk/romeo/index.php
+This is exactly what fRReE enables you to do in the blink of an eye. In addition, the front page of your new Open-Access enabled paper will include:
+  - the reference to the journal/proceedings on the front page
+  - your institution and its logo
+  - the funding bodies sponsoring your research
+  - anything else that want to add to the template
+
+Check on this search engine the policy of your journal/conference, to make sure the copyright transfer you signed allows you to deposit your paper in an Open Access repository: http://www.sherpa.ac.uk/romeo/
+
+You can also use http://www.sherpa.ac.uk/juliet/ to check your funder's policy regarding Open Access. Most of the time, funding bodies ask you to deposit your work in Open Access Archives.
 
 ## Description ##
 
