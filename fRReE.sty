@@ -3010,11 +3010,21 @@ C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!!C[]!
    \def\tempa{}%
    \ifx\RR@titlehead\tempa \gdef\RR@titlehead{\RR@title}\fi}}
 \AtBeginDocument{\set@titlehead}
-\newcommand\RRnote[1]{\begingroup
+
+% handle notes counter manually to avoid numbering clash with affiliations
+\newcounter{notescounter}
+\setcounter{notescounter}{1}
+\newcommand\RRnote[1]{
+  \begingroup
+  $^{\thenotescounter}$
   \let\protect\@unexpandable@protect
-  \protected@xdef\RR@note{\RR@note \protect\footnotetext[0]{#1\par}}%
-  \endgroup}
+  \protected@xdef\RR@note{
+  \RR@note\protect\footnotetext[0]{$^{\thenotescounter}$#1\par}}%
+  \endgroup
+  \addtocounter{notescounter}{1}
+}
 \newcommand\RR@note{}
+
 \def\RRobsolete#1{%
 \@latex@error{Obsolete command `\@backslashchar#1' ignored}\@eha}
 
